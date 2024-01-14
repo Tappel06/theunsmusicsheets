@@ -9,122 +9,460 @@
             align-items: center;
             align-content: center;
             text-align: center;
-            background-color: #75BFEC;
-            margin: auto;
-            padding: auto;
-            padding-left: 0.5em;
-            padding-right: 0.5em;
+            background-color: blue;
+            margin: 0px;
+            padding: 0px;
         }
 
         .header-div{
-            padding: 1vw;
-            display: flexbox;
-            border-radius: 20px;
-            align-self: center;
-            align-content: center;
+            display: flex;
+            background-color: black;
             align-items: center;
+            align-content: center;
+            text-align: center;
+            color: white;
+            margin: auto;
+            margin-left: 0px;
+            padding: 1vw;
+        }
+
+        .main-window-div{
+            display: flex;
+            margin: 0px;
+            margin-bottom: 0px;
+            padding: 0px;
+            height: 100vh;
+        }
+
+        .login-div{
+            display: grid;
+            border-radius: 5%;
+            background-color: black;
+            color: white;
+            margin: auto;
+            margin-top: 2vw;
+            padding: 1vw;
+            font-size: 1.5vw;
+        }
+
+        .userpageDiv{
+            display: none;
+            align-items: center;
+            align-content: center;
             text-align: center;
             margin: auto;
-            margin-top: 0.5em;
-            margin-bottom: 1%;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 4em;
-            font-weight: bolder;
-            width: fit-content;
-            height: fit-content;
-            border: 2px solid black;
-            background-color: #6879D0;
+            size: inherit;
+            width: 100vw;
+            margin-top: 0px;
+            margin-left: 0px;
+            margin-bottom: 0px;
+            padding: 0px;
+            
         }
 
-        .c{
-            color: darkblue;
+        .sidebar{
+            display: flexbox;
+            background-color: black;
+            color: white;
+            margin: 0px;
+            padding: 1vw;
+            padding-top: 0px;
+            font-size: 2vw;
+            height: 100%;
         }
 
-        .e{
-            color: blue;
+        .whatsNew{
+            display: flexbox;
+            text-align: center;
+            align-content: center;
+            background-color: black;
+            color: white;
+            width: 100%;
+            margin: 2vw;
+            margin-top: 2vw;
+            margin-bottom: auto;
+            padding: 2vw;
+            border-radius: 2.5vw;
         }
 
-        .h{
-            color: red;
-        }
-
-        .i{
-            color: purple;
-        }
-
-        .m{
-            color: yellow
-        }
-
-        .n{
-            color: green
-        }
-
-        .s{
-            color: darkmagenta
-        }
-
-        .t{
-            color: yellow
-        }
-
-        .u{
-            color: brown
+        .updates-div{
+            display: none;
+            text-align: center;
+            align-content: center;
+            background-color: black;
+            color: white;
+            width: 100%;
+            margin: 2vw;
+            margin-top: 2vw;
+            margin-bottom: auto;
+            padding: 2vw;
+            border-radius: 2.5vw;
         }
 
         .guitar-div{
-            display: flexbox;
+            display: none;
             text-align: center;
-            border: 2px solid black;
-            border-radius: 20px;
-            margin: auto;
-            margin-top: 1%;
-            margin-bottom: 1%;
-            width: fit-content;
-            background-color: #6879D0;
-            padding: 0.5vw;
+            align-content: center;
+            background-color: black;
+            color: white;
+            width: 100%;
+            margin: 2vw;
+            margin-top: 2vw;
+            margin-bottom: auto;
+            padding: 2vw;
+            border-radius: 2.5vw;
         }
 
         .piano-div{
-            display: flexbox;
+            display: none;
             text-align: center;
-            border: 2px solid black;
-            border-radius: 20px;
-            margin: auto;
-            margin-top: 1%;
-            margin-bottom: 1%;
-            width: fit-content;
-            background-color: #6879D0;
-            padding: 0.5vw;
+            align-content: center;
+            background-color: black;
+            color: white;
+            width: 100%;
+            margin: 2vw;
+            margin-top: 2vw;
+            margin-bottom: auto;
+            padding: 2vw;
+            border-radius: 2.5vw;
         }
 
         .book-collection-div{
-            display: flexbox;
+            display: none;
             text-align: center;
-            border: 2px solid black;
-            border-radius: 20px;
-            margin: auto;
-            margin-top: 1%;
-            margin-bottom: 1%;
-            width: fit-content;
-            background-color: #6879D0;
-            padding: 0.5vw;
+            align-content: center;
+            background-color: black;
+            color: white;
+            width: 100%;
+            margin: 2vw;
+            margin-top: 2vw;
+            margin-bottom: auto;
+            padding: 2vw;
+            border-radius: 2.5vw;
         }
 
         h1{
-            margin-top: 0%;
+            margin-top: 0px; 
+            margin-bottom: 0px; 
+            font-size: 4vw;
         }
 
     </style>
+    <script type="text/javascript">
+
+        var LI = false;
+
+        const UN = ["698b821c4bba9df9e6dac89b46d8d12d55aa8698617085ebb6ad7aa4e86c4ba2", //Admin
+                    "c1144dfca7ce1f5d8311ba7566a3cbcc7f553025a03e5df6a61b0f17d49451bd", //Dan
+                    "20221aef7b8199c90d84bfda6cabdcf13298824757d54615c275f8951d2692f5" //Shrav
+                    ];
+
+        const UP = ["ab572f60a5aa6309b459cc54296e5eddc7d4023636de4d8dd9e73fd613ca4c2c", //Admin
+                    "7683a5e6ab51379c9486793bd7c0e0dcf503f24903474802523c49b8ac6afe52", //Dan
+                    "5974261690314f0b556b68638dfd287c7eabade638055e52b720925e71d1a257" //Shrav
+                    ]
+
+        function loggedIn(){
+            if(LI == true){
+                LI = true
+                document.getElementById('login-div').style.display = 'none';
+                document.getElementById('userpageDiv').style.display = 'flex';
+            }
+        }
+
+        async function userExists(username, password){
+            try{
+                const hashUsername = await sha256(username);
+                const hashPassword = await sha256(password);
+
+                for(var i = 0; i < UN.length; i++){
+                if(hashUsername === UN[i] && hashPassword === UP[i]){
+                    return true
+                    }
+                }
+            }
+            catch (error){
+                console.error("Error hashing: ", error)
+                alert("It was False")
+                return false;
+            }
+            return false
+        }
+
+        async function loginSubmitButton(){
+            const username = document.getElementById('usernameInput').value;
+            const password = document.getElementById('passwordInput').value;
+            const isUserValid = await userExists(username, password);
+
+            if(isUserValid == true){
+                LI = true
+                document.getElementById('login-div').style.display = 'none';
+                document.getElementById('userpageDiv').style.display = 'flex';
+            }
+            else{
+                alert("Username or Password does not match!\nAsk your teacher for Username and Password.")
+            }
+        }
+
+        function guitarPiecesButton(){
+            //Button Colors
+            document.getElementById('guitarPiecesButton').style.color = "grey";
+            document.getElementById('pianoPiecesButton').style.color = "white";
+            document.getElementById('bookCollectionsButton').style.color = "white";
+            document.getElementById('whatsNewButton').style.color = "white";
+            document.getElementById('updatesButton').style.color = "white";
+
+            //Button Font weight
+            document.getElementById('guitarPiecesButton').style.fontWeight = "bold";
+            document.getElementById('pianoPiecesButton').style.fontWeight = "normal";
+            document.getElementById('bookCollectionsButton').style.fontWeight = "normal";
+            document.getElementById('whatsNewButton').style.fontWeight = "normal";
+            document.getElementById('updatesButton').style.fontWeight = "normal";
+
+            //Divisions
+            document.getElementById('guitar-div').style.display = "block"
+            document.getElementById('piano-div').style.display = "none"
+            document.getElementById('book-collection-div').style.display = "none"
+            document.getElementById('whatsNew').style.display = "none"
+            document.getElementById('updates-div').style.display = "none"
+        }
+
+        function pianoPiecesButton(){
+            //Button Colors
+            document.getElementById('guitarPiecesButton').style.color = "white";
+            document.getElementById('pianoPiecesButton').style.color = "grey";
+            document.getElementById('bookCollectionsButton').style.color = "white";
+            document.getElementById('whatsNewButton').style.color = "white";
+            document.getElementById('updatesButton').style.color = "white";
+
+            //Button Font weight
+            document.getElementById('guitarPiecesButton').style.fontWeight = "normal";
+            document.getElementById('pianoPiecesButton').style.fontWeight = "bold";
+            document.getElementById('bookCollectionsButton').style.fontWeight = "normal";
+            document.getElementById('whatsNewButton').style.fontWeight = "normal";
+            document.getElementById('updatesButton').style.fontWeight = "normal";
+
+            //Divisions
+            document.getElementById('guitar-div').style.display = "none"
+            document.getElementById('piano-div').style.display = "block"
+            document.getElementById('book-collection-div').style.display = "none"
+            document.getElementById('whatsNew').style.display = "none"
+            document.getElementById('updates-div').style.display = "none"
+        }
+
+        function bookCollectionsButton(){
+            //Button Colors
+            document.getElementById('guitarPiecesButton').style.color = "white";
+            document.getElementById('pianoPiecesButton').style.color = "white";
+            document.getElementById('bookCollectionsButton').style.color = "grey";
+            document.getElementById('whatsNewButton').style.color = "white";
+            document.getElementById('updatesButton').style.color = "white";
+
+            //Button Font weight
+            document.getElementById('guitarPiecesButton').style.fontWeight = "normal";
+            document.getElementById('pianoPiecesButton').style.fontWeight = "normal";
+            document.getElementById('bookCollectionsButton').style.fontWeight = "bold";
+            document.getElementById('whatsNewButton').style.fontWeight = "normal";
+            document.getElementById('updatesButton').style.fontWeight = "normal";
+
+            //Divisions
+            document.getElementById('guitar-div').style.display = "none"
+            document.getElementById('piano-div').style.display = "none"
+            document.getElementById('book-collection-div').style.display = "block"
+            document.getElementById('whatsNew').style.display = "none"
+            document.getElementById('updates-div').style.display = "none"
+        }
+
+        function whatsNewButton(){
+            //Button Colors
+            document.getElementById('guitarPiecesButton').style.color = "white";
+            document.getElementById('pianoPiecesButton').style.color = "white";
+            document.getElementById('bookCollectionsButton').style.color = "white";
+            document.getElementById('whatsNewButton').style.color = "grey";
+            document.getElementById('updatesButton').style.color = "white";
+
+            //Button Font weight
+            document.getElementById('guitarPiecesButton').style.fontWeight = "normal";
+            document.getElementById('pianoPiecesButton').style.fontWeight = "normal";
+            document.getElementById('bookCollectionsButton').style.fontWeight = "normal";
+            document.getElementById('whatsNewButton').style.fontWeight = "bold";
+            document.getElementById('updatesButton').style.fontWeight = "normal";
+
+            //Divisions
+            document.getElementById('guitar-div').style.display = "none"
+            document.getElementById('piano-div').style.display = "none"
+            document.getElementById('book-collection-div').style.display = "none"
+            document.getElementById('whatsNew').style.display = "block"
+            document.getElementById('updates-div').style.display = "none"
+        }
+
+        function updatesButton(){
+            //Button Colors
+            document.getElementById('guitarPiecesButton').style.color = "white";
+            document.getElementById('pianoPiecesButton').style.color = "white";
+            document.getElementById('bookCollectionsButton').style.color = "white";
+            document.getElementById('whatsNewButton').style.color = "white";
+            document.getElementById('updatesButton').style.color = "grey";
+
+            //Button Font weight
+            document.getElementById('guitarPiecesButton').style.fontWeight = "normal";
+            document.getElementById('pianoPiecesButton').style.fontWeight = "normal";
+            document.getElementById('bookCollectionsButton').style.fontWeight = "normal";
+            document.getElementById('whatsNewButton').style.fontWeight = "normal";
+            document.getElementById('updatesButton').style.fontWeight = "bold";
+
+            //Divisions
+            document.getElementById('guitar-div').style.display = "none";
+            document.getElementById('piano-div').style.display = "none";
+            document.getElementById('book-collection-div').style.display = "none";
+            document.getElementById('whatsNew').style.display = "none";
+            document.getElementById('updates-div').style.display = "block";
+        }
+
+        //Key
+        async function sha256(text){
+                const encoder = new TextEncoder;
+                const buffer = encoder.encode(text);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('')
+                return hashHex;
+            }
+    </script>
 </head>
 <body>
+    <script>
+        loggedIn();
+    </script>
     <div class="header-div">
-        <a class="t">T</a><a class="h">h</a><a class="e">e</a><a class="u">u</a><a class="n">n</a><a class="s">s</a><a class="'">'</a>
-        <br>
-        <a class="m">M</a><a class="u">u</a><a class="s">s</a><a class = i>i</a><a class="c">c</a><a> </a>
-        <a class="s">S</a><a class="h">h</a><a class="e">e</a><a class="e">e</a><a class="t">t</a><a class="s">s</a>
+        <a style="margin: 0px; margin-left: auto; font-size: 5.5vw; padding: 0px;">
+            Theuns' Music Sheets
+        </a>
+        <a style="margin: 0px; margin-right: auto; margin-bottom: 0px; margin-top: auto; font-size: 1vw;">
+            (Beta Version: 2.0.0)
+        </a>
     </div>
+    <div class="main-window-div">
+        <div class = "login-div" id = 'login-div'>
+            <h1 style="margin-top: 0px; margin-bottom: 0px; font-size: 4vw;">Login</h1>
+            <a style="color: red;">(Ask your teacher for username and password.)</a>
+            <br>
+            <br>
+            <a>Username:</a>
+            <input type="text" id="usernameInput" style="text-align: center; border-radius: 2.5vw;">
+            <br>
+            <a>Password:</a>
+            <input type="password" id="passwordInput" style="text-align: center; border-radius: 2.5vw;">
+            <br>
+            <br>
+            <button type="submit" onclick="loginSubmitButton()" style="border-radius: 2.5vw;;">Login</button>
+            <br>
+        </div>
+        <div class="userpageDiv" id="userpageDiv">
+            <div class="sidebar">
+                <a id="guitarPiecesButton" onclick="guitarPiecesButton()">Guitar Pieces</a>
+                <br>
+                <br>
+                <a id="pianoPiecesButton" onclick="pianoPiecesButton()">Piano Pieces</a>
+                <br>
+                <br>
+                <a id="bookCollectionsButton" onclick="bookCollectionsButton()">Book Collections</a>
+                <br>
+                <br>
+                <a id="whatsNewButton" onclick="whatsNewButton()" style="color: grey; font-weight: bold;">What's New</a>
+                <br>
+                <br>
+                <a id="updatesButton" onclick="updatesButton()">Updates</a>
+            </div>
+            <div class="whatsNew" id="whatsNew">
+                <h1>What is new?</h1>
+                <br>
+                <hr style="color: white;">
+                <a style="font-size: 1.5vw;">14 January 2024</a>
+                <br>
+                <a style="font-size: 1.5vw;">No new pieces yet, ask your teacher for new pieces</a>
+                <hr style="color: white;">
+            </div>
+            <div class="updates-div" id="updates-div">
+                <h1>Updates</h1>
+                <br>
+                <hr style="color: white;">
+                <a style="font-size: 1.5vw;">Beta Version (2.0.0)</a>
+                <br>
+                <a style="font-size: 1.5vw;">Created an entirely new interface for the user, and added a login page.</a>
+                <hr style="color: white;">
+            </div>
+            <div class="guitar-div" id="guitar-div">
+                <h1>Guitar Pieces</h1>
+                <br>
+                <a style="font-size: 1.5vw;">Metallica: Nothing Else Matters</a>
+                <br>
+                <a style="font-size: 1.5vw;" href="guitar/Metallica-Nothing_Else_Matters_(arranged_for_one_acoustic_guitar).pdf">|| View ||</a>
+                <a style="font-size: 1.5vw;" href="guitar/Metallica-Nothing_Else_Matters_(arranged_for_one_acoustic_guitar).pdf" download="Metallica-Nothing Else Matters.pdf">|| Download ||</a>
+                <br>
+                <br>
+                <a style="font-size: 1.5vw;">Sum 41: Pieces</a>
+                <br>
+                <a style="font-size: 1.5vw;" href="guitar/Sum 41 - Pieces.pdf">|| View ||</a>
+                <a style="font-size: 1.5vw;" href="guitar/Sum 41 - Pieces.pdf" download="Sum 41 - Pieces">|| Download ||</a>
+                <br>
+                <br>
+                <a style="font-size: 1.5vw;">Sum 41: Pieces (Easy Guitar and Piano Duet)</a>
+                <br>
+                <a style="font-size: 1.5vw;" href="guitar/Pieces (Eaysy Guitar and piano duet).pdf">|| View ||</a>
+                <a style="font-size: 1.5vw;" href="guitar/Pieces (Eaysy Guitar and piano duet).pdf" download="Sum 41 - Pieces duet">|| Download ||</a>
+                <br>
+                <br>
+                <a style="font-size: 1.5vw;">U2: With or Without You</a>
+                <br>
+                <a style="font-size: 1.5vw;" href="guitar/With or Without You Theuns Arranged.pdf">|| View ||</a>
+                <a style="font-size: 1.5vw;" href="guitar/With or Without You Theuns Arranged.pdf" download="U2-With or Without You.pdf">|| Download</a>
+            </div>
+            <div class="piano-div" id="piano-div">
+                <h1>Piano Pieces</h1>
+                <br>
+                <a style="font-size: 1.5vw;">Aha: Take on Me</a>
+                <br>
+                <a style="font-size: 1.5vw;" href="piano/kupdf.net_take-on-me-sheet-music-a-hapdf.pdf">|| View ||</a>
+                <a style="font-size: 1.5vw;" href="piano/kupdf.net_take-on-me-sheet-music-a-hapdf.pdf" download="Aha-Take on Me.pdf">|| Download ||</a>
+                <br>
+                <br>
+                <a style="font-size: 1.5vw;">Green Day: Wake Me Up When September Ends</a>
+                <br>
+                <a style="font-size: 1.5vw;" href="piano/Wake-Me-Up-When-September-Ends-Sheet-Music-Green-Day-SheetMusic-Free.com_.pdf">|| View ||</a>
+                <a style="font-size: 1.5vw;" href="piano/Wake-Me-Up-When-September-Ends-Sheet-Music-Green-Day-SheetMusic-Free.com_.pdf" download="Green Day-Wake Me Up When September Ends.pdf">|| Download ||</a>
+                <br>
+                <br>
+                <a style="font-size: 1.5vw;">Nirvana: Smells Like Teen Spirit</a>
+                <br>
+                <a style="font-size: 1.5vw;" href="piano/kupdf.net_sheet-music-piano-score-nirvana-smells-like-teen-spirit1.pdf">|| View ||</a>
+                <a style="font-size: 1.5vw;" href="piano/kupdf.net_sheet-music-piano-score-nirvana-smells-like-teen-spirit1.pdf" download="Nirvana-Smells Like Teen Spirit.pdf">|| Download ||</a>
+                
+            </div>
+            <div class="book-collection-div" id="book-collection-div">
+                <h1>Book Collections</h1>
+                <br>
+                <a style="font-size: 1.5vw;">Sum 41: Chuck</a>
+                <br>
+                <a style="font-size: 1.5vw;" href="collections/scribd.vdownloaders.com_sum-41-chuck-authentic-transcriptions-with-notes-and-tablature.pdf">|| View ||</a>
+                <a style="font-size: 1.5vw;" href="collections/scribd.vdownloaders.com_sum-41-chuck-authentic-transcriptions-with-notes-and-tablature.pdf" download="Sum 41-cuck.pdf">|| Download ||</a>
+                <br>
+                <br>
+                <a style="font-size: 1.5vw;">The Library Of Classical Guitar Favorites</a>
+                <br>
+                <a style="font-size: 1.5vw;" href="collections/The-library-of-classical-guitar-favorites-Amco-Publications-pdf.pdf">|| View ||</a>
+                <a style="font-size: 1.5vw;" href="collections/The-library-of-classical-guitar-favorites-Amco-Publications-pdf.pdf" download="The Library Of Classical Guitar Favorites.pdf">|| Download ||</a>
+                <br>
+                <br>
+                <a style="font-size: 1.5vw;">The Ultimate Pop Rock Fake Book</a>
+                <br>
+                <a style="font-size: 1.5vw;" href="collections/The-Ultimate-Pop-Rock-Fake-Book.pdf">|| View ||</a>
+                <a style="font-size: 1.5vw;" href="collections/The-Ultimate-Pop-Rock-Fake-Book.pdf" download="The Ultimate Pop Rock Fake Book">|| Download ||</a>
+            </div>
+        </div>
+    </div>
+    
+    <!--
     <a>Updated on: 20 November 2023</a>
     <div class="guitar-div">
         <h1>Guitar Pieces</h1>
@@ -192,5 +530,6 @@
         <a href="collections/The-Ultimate-Pop-Rock-Fake-Book.pdf">|| View ||</a>
         <a href="collections/The-Ultimate-Pop-Rock-Fake-Book.pdf" download="The Ultimate Pop Rock Fake Book">|| Download ||</a>
     </div>
+    -->
 </body>
 </html>
