@@ -26,6 +26,20 @@
             padding: 1vw;
         }
 
+        .mobile-header-div{
+            display: none;
+            position: fixed;
+            background-color: black;
+            color: white;
+            margin: auto;
+            margin-left: 0px;
+            margin-right: 0px;
+            width: 100vw;
+            padding: 1vw;
+            padding-left: 1vw;
+            padding-right: 1vw;
+        }
+
         .main-window-div{
             display: flex;
             margin: 0px;
@@ -39,11 +53,15 @@
             border-radius: 5%;
             background-color: black;
             color: white;
+            height: auto;
             margin: auto;
             margin-top: 2vw;
-            padding: 1vw;
-            font-size: 1.5vw;
+            padding: 3vw;
         }
+
+        .login-div input{
+                height: 2vw;
+            }
 
         .userpageDiv{
             display: none;
@@ -67,7 +85,6 @@
             margin: 0px;
             padding: 1vw;
             padding-top: 0px;
-            font-size: 2vw;
             height: 100%;
         }
 
@@ -161,9 +178,66 @@
             font-size: 4vw;
         }
 
+        @media only screen and (max-width: 768px){
+            .header-div{
+                
+                display: flex;
+                position: fixed;
+                width: 100vw;
+            }
+
+            .login-div{
+                display: grid;/*Change back to grid*/
+                margin-top: 15vw;
+            }
+
+            .login-div a{
+                font-size: 4vw;
+            }
+
+            .login-div h1{
+                font-size: 6vw;
+            }
+
+            .login-div input{
+                height: 5vw;
+                font-size: 4vw;
+            }
+
+            .login-div button{
+                font-size: 4vw;
+            }
+
+            .userpageDiv{
+                /*display: flex; /*Delete*/
+                position: relative;
+                margin-top: 10vw;
+            }
+
+            .userpageDiv a{
+                font-size: 4vw;
+            }
+
+            .userpageDiv h1{
+                font-size: 6vw;
+            }
+
+            .sidebar{
+                display: flexbox;
+                position: fixed;
+                background-color: rgba(10, 10, 40, 0.9);
+                margin-left: 70vw;
+                margin-right: 0vw;
+                margin-top: 8vw;
+                margin-bottom: auto;
+            }
+           
+        }
+
     </style>
     <script type="text/javascript">
-
+        
+        var menuButtonActivated = false;
         var LI = false;
 
         const UN = ["698b821c4bba9df9e6dac89b46d8d12d55aa8698617085ebb6ad7aa4e86c4ba2", //Admin
@@ -176,6 +250,16 @@
                     "5974261690314f0b556b68638dfd287c7eabade638055e52b720925e71d1a257" //Shrav
                     ]
 
+
+        function isMobile(){
+            const sw = screen.width;
+            if (sw <= 768){
+                return true
+            }
+            else{
+                return false
+            }
+        }
         function loggedIn(){
             if(LI == true){
                 LI = true
@@ -191,13 +275,12 @@
 
                 for(var i = 0; i < UN.length; i++){
                 if(hashUsername === UN[i] && hashPassword === UP[i]){
-                    return true
+                    return true;
                     }
                 }
             }
             catch (error){
-                console.error("Error hashing: ", error)
-                alert("It was False")
+                console.error("Error hashing: ", error);
                 return false;
             }
             return false
@@ -210,12 +293,33 @@
 
             if(isUserValid == true){
                 LI = true
-                document.getElementById('login-div').style.display = 'none';
-                document.getElementById('userpageDiv').style.display = 'flex';
+                if (isMobile() == true){
+                    document.getElementById('header-div').style.display = 'none';
+                    document.getElementById('mobile-header-div').style.display = 'flex';
+                    document.getElementById('login-div').style.display = 'none';
+                    document.getElementById('userpageDiv').style.display = 'flex';
+                    document.getElementById('sidebar').style.display = 'none';
+                }
+                else{
+                    document.getElementById('login-div').style.display = 'none';
+                    document.getElementById('userpageDiv').style.display = 'flex';
+                }
             }
             else{
                 alert("Username or Password does not match!\nAsk your teacher for Username and Password.")
             }
+        }
+        
+        function menuButton(){
+            if (menuButtonActivated == false){
+                menuButtonActivated = true;
+                document.getElementById('sidebar').style.display = 'block';
+            }
+            else{
+                menuButtonActivated = false;
+                document.getElementById('sidebar').style.display = 'none';
+            }
+            
         }
 
         function guitarPiecesButton(){
@@ -386,20 +490,26 @@
     </script>
 </head>
 <body>
-    <script>
-        loggedIn();
-    </script>
-    <div class="header-div">
-        <a style="margin: 0px; margin-left: auto; font-size: 5.5vw; padding: 0px;">
+    <div class="header-div" id="header-div">
+        <a style="margin: 0px; margin-left: auto; font-size: 6vw; padding: 0px;">
             Theuns' Music Sheets
         </a>
-        <a style="margin: 0px; margin-right: auto; margin-bottom: 0px; margin-top: auto; font-size: 1vw;">
-            (Beta Version: 2.0.1)
+        <a style="margin: 0px; margin-right: auto; margin-bottom: 0px; margin-top: auto; font-size: 2vw;">
+            (Beta Version: 2.1.0)
         </a>
+    </div>
+    <div class="mobile-header-div" id="mobile-header-div">
+        <a style="margin: 0px; font-size: 6vw; padding: 0px;">
+            Theuns' Music Sheets
+        </a>
+        <a style="margin: 0px; margin-right: auto; margin-bottom: 0px; margin-top: auto; font-size: 2vw;">
+            (Beta Version: 2.1.0)
+        </a>
+        <a style="margin: 0px;margin-right: 2vw; font-size: 5.5vw;" onclick="menuButton()">Menu</a>
     </div>
     <div class="main-window-div">
         <div class = "login-div" id = 'login-div'>
-            <h1 style="margin-top: 0px; margin-bottom: 0px; font-size: 4vw;">Login</h1>
+            <h1 style="margin-top: 0px; margin-bottom: 0px;">Login</h1>
             <a style="color: red;">(Ask your teacher for username and password.)</a>
             <br>
             <br>
@@ -410,11 +520,11 @@
             <input type="password" id="passwordInput" style="text-align: center; border-radius: 2.5vw;">
             <br>
             <br>
-            <button type="submit" onclick="loginSubmitButton()" style="border-radius: 2.5vw;;">Login</button>
+            <button type="submit" onclick="loginSubmitButton()" style="border-radius: 2.5vw; font-weight: bolder; background-color: rgba(300, 300, 300, 0.7);">Login</button>
             <br>
         </div>
         <div class="userpageDiv" id="userpageDiv">
-            <div class="sidebar">
+            <div class="sidebar" id="sidebar">
                 <a id="guitarPiecesButton" onclick="guitarPiecesButton()">Guitar Pieces</a>
                 <br>
                 <br>
@@ -435,136 +545,132 @@
             <div class="whatsNew" id="whatsNew">
                 <h1>What is new?</h1>
                 <br>
-                <hr style="color: white;">
-                <a style="font-size: 1.5vw;">22 January 2024</a>
+                <a>22 January 2024</a>
                 <br>
-                <a style="font-size: 1.5vw;">Uploaded Trinity guitar pieces and scales.</a>
+                <a>Uploaded Trinity guitar pieces and scales.</a>
                 <hr style="color: white;">
-                <a style="font-size: 1.5vw;">14 January 2024</a>
+                <a>14 January 2024</a>
                 <br>
-                <a style="font-size: 1.5vw;">No new pieces yet, ask your teacher for new pieces</a>
-                <hr style="color: white;">
+                <a>No new pieces yet, ask your teacher for new pieces</a>
             </div>
             <div class="updates-div" id="updates-div">
                 <h1>Updates</h1>
                 <br>
-                <hr style="color: white;">
-                <a style="font-size: 1.5vw;">Beta Version (2.0.1)</a>
+                <a>Beta Version (2.1.0) 24/01/2024</a>
                 <br>
-                <a style="font-size: 1.5vw;">Created a sidebar button for Trinity Guitar, and modified the spaces in each div tab.</a>
+                <a>Created an entire GUI for mobile devices, and changed the general layout of the menus.</a>
                 <hr style="color: white;">
-                <a style="font-size: 1.5vw;">Beta Version (2.0.0)</a>
+                <a>Beta Version (2.0.1) 22/01/2024</a>
                 <br>
-                <a style="font-size: 1.5vw;">Created an entirely new interface for the user, and added a login page.</a>
+                <a>Created a sidebar button for Trinity Guitar, and modified the spaces in each div tab.</a>
                 <hr style="color: white;">
+                <a>Beta Version (2.0.0) 14/01/2024</a>
+                <br>
+                <a>Created an entirely new interface for the user, and added a login page.</a>
             </div>
             <div class="guitar-div" id="guitar-div">
                 <h1>Guitar Pieces</h1>
                 <br>
-                <a style="font-size: 1.5vw;">Metallica: Nothing Else Matters</a>
+                <a>Metallica: Nothing Else Matters</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="guitar/Metallica-Nothing_Else_Matters_(arranged_for_one_acoustic_guitar).pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="guitar/Metallica-Nothing_Else_Matters_(arranged_for_one_acoustic_guitar).pdf" download="Metallica-Nothing Else Matters.pdf">|| Download ||</a>
+                <a href="guitar/Metallica-Nothing_Else_Matters_(arranged_for_one_acoustic_guitar).pdf" download="Metallica-Nothing Else Matters.pdf">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">Sum 41: Pieces</a>
+                <hr style="color: white;">
+                <a>Sum 41: Pieces</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="guitar/Sum 41 - Pieces.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="guitar/Sum 41 - Pieces.pdf" download="Sum 41 - Pieces">|| Download ||</a>
+                <a href="guitar/Sum 41 - Pieces.pdf" download="Sum 41 - Pieces">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">Sum 41: Pieces (Easy Guitar and Piano Duet)</a>
+                <hr style="color: white;">
+                <a>Sum 41: Pieces (Easy Guitar and Piano Duet)</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="guitar/Pieces (Eaysy Guitar and piano duet).pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="guitar/Pieces (Eaysy Guitar and piano duet).pdf" download="Sum 41 - Pieces duet">|| Download ||</a>
+                <a href="guitar/Pieces (Eaysy Guitar and piano duet).pdf" download="Sum 41 - Pieces duet">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">U2: With or Without You</a>
+                <hr style="color: white;">
+                <a>U2: With or Without You</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="guitar/With or Without You Theuns Arranged.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="guitar/With or Without You Theuns Arranged.pdf" download="U2-With or Without You.pdf">|| Download</a>
+                <a href="guitar/With or Without You Theuns Arranged.pdf" download="U2-With or Without You.pdf">Download</a>
             </div>
             <div class="trinity-guitar-div" id="trinity-guitar-div">
                 <h1>Trinity Guitar</h1>
                 <br>
-                <a style="font-size: 1.5vw;">Trinity scales grade 1-5</a>
+                <a>Trinity scales grade 1-5</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity scales grd 1-5.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity scales grd 1-5.pdf" download="Trinity scales grade 1-5.pdf">|| Download</a>
+                <a href="Trinity Guitar/Trinity scales grd 1-5.pdf" download="Trinity scales grade 1-5.pdf">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">Trinity initial - 2020</a>
+                <hr style="color: white;">
+                <a>Trinity initial - 2020</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity initial 2020.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity initial 2020.pdf" download="Trinity initial 2020.pdf">|| Download ||</a>
+                <a href="Trinity Guitar/Trinity initial 2020.pdf" download="Trinity initial 2020.pdf">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">Trinity grade 1 - 2020</a>
+                <hr style="color: white;">
+                <a>Trinity grade 1 - 2020</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity grade 1 - 2020.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity grade 1 - 2020.pdf" download="Trinity Grade 1 - 2020.pdf">|| Download ||</a>
+                <a href="Trinity Guitar/Trinity grade 1 - 2020.pdf" download="Trinity Grade 1 - 2020.pdf">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">Trinity grade 2 - 2020</a>
+                <hr style="color: white;">
+                <a>Trinity grade 2 - 2020</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity grade 2 - 2020.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity grade 2 - 2020.pdf" download="Trinity grade 2 - 2020.pdf">|| Download ||</a>
+                <a href="Trinity Guitar/Trinity grade 2 - 2020.pdf" download="Trinity grade 2 - 2020.pdf">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">Trinity grade 3 - 2020</a>
+                <hr style="color: white;">
+                <a>Trinity grade 3 - 2020</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity grade 3 - 2020.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity grade 3 - 2020.pdf" download="Trinity grade 3 - 2020.pdf">|| Download</a>
+                <a href="Trinity Guitar/Trinity grade 3 - 2020.pdf" download="Trinity grade 3 - 2020.pdf">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">Trinity grade 4 - 2010</a>
+                <hr style="color: white;">
+                <a>Trinity grade 4 - 2010</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity grade 4 - 2010.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity grade 4 - 2010.pdf" download="Trinity grade 4 - 2010.pdf">|| Download</a>
+                <a href="Trinity Guitar/Trinity grade 4 - 2010.pdf" download="Trinity grade 4 - 2010.pdf">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">Trinity grade 5 - 2020</a>
+                <hr style="color: white;">
+                <a>Trinity grade 5 - 2020</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity grade 5 - 2010.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity grade 5 - 2010.pdf" download="Trinity grade 5 - 2010.pdf">|| Download</a>
+                <a href="Trinity Guitar/Trinity grade 5 - 2010.pdf" download="Trinity grade 5 - 2010.pdf">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">Trinity grade 6 - 2020</a>
+                <hr style="color: white;">
+                <a>Trinity grade 6 - 2020</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity grade 6 - 2010.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity grade 6 - 2010.pdf" download="Trinity grade 6 - 2010.pdf">|| Download</a>
+                <a href="Trinity Guitar/Trinity grade 6 - 2010.pdf" download="Trinity grade 6 - 2010.pdf">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">Trinity grade 7 - 2020</a>
+                <hr style="color: white;">
+                <a>Trinity grade 7 - 2020</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity grade 7 - 2010.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="Trinity Guitar/Trinity grade 7 - 2010.pdf" download="Trinity grade 7 - 2010.pdf">|| Download</a>
+                <a href="Trinity Guitar/Trinity grade 7 - 2010.pdf" download="Trinity grade 7 - 2010.pdf">Download</a>
             </div>
             <div class="piano-div" id="piano-div">
                 <h1>Piano Pieces</h1>
                 <br>
-                <a style="font-size: 1.5vw;">Aha: Take on Me</a>
+                <a>Aha: Take on Me</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="piano/kupdf.net_take-on-me-sheet-music-a-hapdf.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="piano/kupdf.net_take-on-me-sheet-music-a-hapdf.pdf" download="Aha-Take on Me.pdf">|| Download ||</a>
+                <a href="piano/kupdf.net_take-on-me-sheet-music-a-hapdf.pdf" download="Aha-Take on Me.pdf">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">Green Day: Wake Me Up When September Ends</a>
+                <hr style="color: white;">
+                <a>Green Day: Wake Me Up When September Ends</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="piano/Wake-Me-Up-When-September-Ends-Sheet-Music-Green-Day-SheetMusic-Free.com_.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="piano/Wake-Me-Up-When-September-Ends-Sheet-Music-Green-Day-SheetMusic-Free.com_.pdf" download="Green Day-Wake Me Up When September Ends.pdf">|| Download ||</a>
+                <a href="piano/Wake-Me-Up-When-September-Ends-Sheet-Music-Green-Day-SheetMusic-Free.com_.pdf" download="Green Day-Wake Me Up When September Ends.pdf">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">Nirvana: Smells Like Teen Spirit</a>
+                <hr style="color: white;">
+                <a>Nirvana: Smells Like Teen Spirit</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="piano/kupdf.net_sheet-music-piano-score-nirvana-smells-like-teen-spirit1.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="piano/kupdf.net_sheet-music-piano-score-nirvana-smells-like-teen-spirit1.pdf" download="Nirvana-Smells Like Teen Spirit.pdf">|| Download ||</a>
+                <a href="piano/kupdf.net_sheet-music-piano-score-nirvana-smells-like-teen-spirit1.pdf" download="Nirvana-Smells Like Teen Spirit.pdf">Download</a>
                 
             </div>
             <div class="book-collection-div" id="book-collection-div">
                 <h1>Book Collections</h1>
                 <br>
-                <a style="font-size: 1.5vw;">Sum 41: Chuck</a>
+                <a>Sum 41: Chuck</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="collections/scribd.vdownloaders.com_sum-41-chuck-authentic-transcriptions-with-notes-and-tablature.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="collections/scribd.vdownloaders.com_sum-41-chuck-authentic-transcriptions-with-notes-and-tablature.pdf" download="Sum 41-cuck.pdf">|| Download ||</a>
+                <a href="collections/scribd.vdownloaders.com_sum-41-chuck-authentic-transcriptions-with-notes-and-tablature.pdf" download="Sum 41-cuck.pdf">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">The Library Of Classical Guitar Favorites</a>
+                <hr style="color: white;">
+                <a>The Library Of Classical Guitar Favorites</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="collections/The-library-of-classical-guitar-favorites-Amco-Publications-pdf.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="collections/The-library-of-classical-guitar-favorites-Amco-Publications-pdf.pdf" download="The Library Of Classical Guitar Favorites.pdf">|| Download ||</a>
+                <a href="collections/The-library-of-classical-guitar-favorites-Amco-Publications-pdf.pdf" download="The Library Of Classical Guitar Favorites.pdf">Download</a>
                 <br>
-                <a style="font-size: 1.5vw;">The Ultimate Pop Rock Fake Book</a>
+                <hr style="color: white;">
+                <a>The Ultimate Pop Rock Fake Book</a>
                 <br>
-                <a style="font-size: 1.5vw;" href="collections/The-Ultimate-Pop-Rock-Fake-Book.pdf">|| View ||</a>
-                <a style="font-size: 1.5vw;" href="collections/The-Ultimate-Pop-Rock-Fake-Book.pdf" download="The Ultimate Pop Rock Fake Book">|| Download ||</a>
+                <a href="collections/The-Ultimate-Pop-Rock-Fake-Book.pdf" download="The Ultimate Pop Rock Fake Book">Download</a>
             </div>
         </div>
     </div>
