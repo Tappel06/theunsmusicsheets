@@ -16,6 +16,7 @@
 
         .header-div{
             display: flex;
+            position: fixed;/* test*/
             background-color: black;
             align-items: center;
             align-content: center;
@@ -25,6 +26,7 @@
             margin-left: 0px;
             padding: 1vw;
             height: 6vw;
+            width: 100vw;/* test*/
         }
 
         .mobile-header-div{
@@ -41,6 +43,12 @@
             padding-right: 1vw;
             height: 6vw;
         }
+
+        .mobile-header-div img{
+            height: auto;
+            width: 6%;
+            margin-right: 2vw;;
+            }
 
         .main-window-div{
             display: flex;
@@ -59,10 +67,23 @@
             margin: auto;
             margin-top: 2vw;
             padding: 3vw;
+            margin-top: 15vw;/*Test*/
         }
 
         .login-div input{
-                height: 2vw;
+            height: 2vw;
+            }
+
+            .login-div a{
+            font-size: 4vw;
+            }
+
+            .login-div h1{
+            font-size: 6vw;
+            }
+
+            .login-div button{
+            font-size: 4vw;
             }
 
         .userpageDiv{
@@ -73,22 +94,32 @@
             margin: auto;
             size: inherit;
             width: 100vw;
-            margin-top: 0px;
             margin-left: 0px;
             margin-bottom: 0px;
             padding: 0px;
-            
+            position: relative; /*test*/
+            margin-top: 10vw;
         }
+
+        .userpageDiv a{
+            font-size: 4vw;
+            }
+
+        .userpageDiv h1{
+            font-size: 6vw;
+            }
 
         .sidebar{
             display: none;
-            background-color: black;
             color: white;
             margin: 0px;
             margin-top: 6vw;
             padding: 1vw;
             height: 100%;
             z-index: 1;
+            position: fixed;/*test*/
+            background-color: rgba(10, 10, 40, 0.9);/*test*/
+            margin-bottom: auto;/*test*/
         }
 
         .whatsNew{
@@ -196,7 +227,7 @@
             }
 
             .login-div{
-                display: grid;/*Change back to grid*/
+                display: grid;
                 margin-top: 15vw;
             }
 
@@ -218,7 +249,6 @@
             }
 
             .userpageDiv{
-                /*display: flex; /*Delete*/
                 position: relative;
                 margin-top: 10vw;
             }
@@ -307,9 +337,10 @@
                     document.getElementById('mobile-header-div').style.display = 'flex';
                     document.getElementById('login-div').style.display = 'none';
                     document.getElementById('userpageDiv').style.display = 'flex';
-                    document.getElementById('sidebar').style.display = 'none';
                 }
                 else{
+                    document.getElementById('header-div').style.display = 'none';
+                    document.getElementById('mobile-header-div').style.display = 'flex';
                     document.getElementById('login-div').style.display = 'none';
                     document.getElementById('userpageDiv').style.display = 'flex';
                 }
