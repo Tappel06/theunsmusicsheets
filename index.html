@@ -24,6 +24,7 @@
             margin: auto;
             margin-left: 0px;
             padding: 1vw;
+            height: 6vw;
         }
 
         .mobile-header-div{
@@ -38,6 +39,7 @@
             padding: 1vw;
             padding-left: 1vw;
             padding-right: 1vw;
+            height: 6vw;
         }
 
         .main-window-div{
@@ -79,13 +81,14 @@
         }
 
         .sidebar{
-            display: flexbox;
+            display: none;
             background-color: black;
             color: white;
             margin: 0px;
+            margin-top: 6vw;
             padding: 1vw;
-            padding-top: 0px;
             height: 100%;
+            z-index: 1;
         }
 
         .whatsNew{
@@ -234,7 +237,7 @@
                 background-color: rgba(10, 10, 40, 0.9);
                 margin-left: 0vw;
                 margin-right: 0vw;
-                margin-top: 0vw;
+                margin-top: 6vw;
                 margin-bottom: auto;
             }
            
@@ -513,6 +516,24 @@
         </a>
         <img src="icons8-hamburger-menu-64.png" onclick="menuButton()">
     </div>
+    <div class="sidebar" id="sidebar">
+        <a id="guitarPiecesButton" onclick="guitarPiecesButton()">Guitar Pieces</a>
+        <br>
+        <br>
+        <a id="TrinityGuitarButton" onclick="TrinityGuitarButton()">Trinity Guitar</a>
+        <br>
+        <br>
+        <a id="pianoPiecesButton" onclick="pianoPiecesButton()">Piano Pieces</a>
+        <br>
+        <br>
+        <a id="bookCollectionsButton" onclick="bookCollectionsButton()">Book Collections</a>
+        <br>
+        <br>
+        <a id="whatsNewButton" onclick="whatsNewButton()" style="color: grey; font-weight: bold;">What's New</a>
+        <br>
+        <br>
+        <a id="updatesButton" onclick="updatesButton()">Updates</a>
+    </div>
     <div class="main-window-div">
         <div class = "login-div" id = 'login-div'>
             <h1 style="margin-top: 0px; margin-bottom: 0px;">Login</h1>
@@ -530,24 +551,6 @@
             <br>
         </div>
         <div class="userpageDiv" id="userpageDiv">
-            <div class="sidebar" id="sidebar">
-                <a id="guitarPiecesButton" onclick="guitarPiecesButton()">Guitar Pieces</a>
-                <br>
-                <br>
-                <a id="TrinityGuitarButton" onclick="TrinityGuitarButton()">Trinity Guitar</a>
-                <br>
-                <br>
-                <a id="pianoPiecesButton" onclick="pianoPiecesButton()">Piano Pieces</a>
-                <br>
-                <br>
-                <a id="bookCollectionsButton" onclick="bookCollectionsButton()">Book Collections</a>
-                <br>
-                <br>
-                <a id="whatsNewButton" onclick="whatsNewButton()" style="color: grey; font-weight: bold;">What's New</a>
-                <br>
-                <br>
-                <a id="updatesButton" onclick="updatesButton()">Updates</a>
-            </div>
             <div class="whatsNew" id="whatsNew">
                 <h1>What is new?</h1>
                 <br>
