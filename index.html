@@ -16,7 +16,7 @@
 
         .header-div{
             display: flex;
-            position: fixed;/* test*/
+            position: fixed;
             background-color: rgba(0, 0, 0, 0.8);
             align-items: center;
             align-content: center;
@@ -25,29 +25,36 @@
             margin: auto;
             margin-left: 0px;
             padding: 1vw;
-            height: 6vw;
-            width: 100vw;/* test*/
+            height: 3.5vw;
+            width: 100vw;
         }
 
         .mobile-header-div{
             display: none;
             position: fixed;
             background-color: rgba(0, 0, 0, 0.8);
+
+            /* test */
+
+            align-items: center;
+            align-content: center;
+            text-align: center;
+
+            /* test */
+
             color: white;
             margin: auto;
             margin-left: 0px;
             margin-right: 0px;
             width: 100vw;
             padding: 1vw;
-            padding-left: 1vw;
-            padding-right: 1vw;
-            height: 6vw;
+            height: 3.5vw;
         }
 
         .mobile-header-div img{
             height: auto;
             width: 6%;
-            margin-right: 2vw;;
+            margin-right: 2vw;
             }
 
         .main-window-div{
@@ -67,23 +74,24 @@
             margin: auto;
             margin-top: 2vw;
             padding: 3vw;
-            margin-top: 15vw;/*Test*/
+            margin-top: 8vw;
         }
 
-        .login-div input{
-            height: 2vw;
+            .login-div input{
+                height: 1.5vw;
+                font-size: 1.5vw;
             }
 
             .login-div a{
-            font-size: 4vw;
+                font-size: 1.5vw;
             }
 
             .login-div h1{
-            font-size: 6vw;
+                font-size: 3vw;
             }
 
             .login-div button{
-            font-size: 4vw;
+                font-size: 1.5vw;
             }
 
         .userpageDiv{
@@ -97,29 +105,36 @@
             margin-left: 0px;
             margin-bottom: 0px;
             padding: 0px;
-            position: relative; /*test*/
-            margin-top: 10vw;
+            position: relative;
+            margin-top: 6vw;
         }
 
-        .userpageDiv a{
-            font-size: 4vw;
-            }
+            .userpageDiv a{
+                font-size: 1.5vw;
+                }
 
-        .userpageDiv h1{
-            font-size: 6vw;
-            }
+            .userpageDiv h1{
+                font-size: 3vw;
+                }
 
         .sidebar{
             display: none;
+            position: fixed;
             color: white;
             margin: 0px;
             margin-top: 6vw;
             padding: 1vw;
             height: 100%;
             z-index: 1;
-            position: fixed;/*test*/
-            background-color: rgba(10, 10, 40, 0.9);/*test*/
-            margin-bottom: auto;/*test*/
+            background-color: rgba(10, 10, 40, 0.9);
+            margin-left: 0vw;
+            margin-right: 0vw;
+            margin-top: 5vw;
+            margin-bottom: auto;
+        }
+
+        .sidebar a{
+            font-size: 1.5vw;
         }
 
         .whatsNew{
@@ -151,6 +166,20 @@
         }
 
         .guitar-div{
+            display: none;
+            text-align: center;
+            align-content: center;
+            background-color: rgba(10, 10, 40, 0.6);
+            color: white;
+            width: 100%;
+            margin: 2vw;
+            margin-top: 2vw;
+            margin-bottom: auto;
+            padding: 2vw;
+            border-radius: 2.5vw;
+        }
+
+        .guitar-chords-div{
             display: none;
             text-align: center;
             align-content: center;
@@ -214,52 +243,54 @@
 
         @media only screen and (max-width: 768px){
             .header-div{
-                
                 display: flex;
-                position: fixed;
-                width: 100vw;
+                padding: 1vw;
+                height: 6vw;
             }
 
             .mobile-header-div img{
-                height: auto;
+                height: 6vw;
                 width: 6%;
-                margin-right: 2vw;;
+                margin-right: 2vw;
             }
 
             .login-div{
                 display: grid;
                 margin-top: 15vw;
+                margin-top: 2vw;
+                padding: 3vw;
+                margin-top: 15vw;
             }
 
-            .login-div a{
-                font-size: 4vw;
-            }
+                .login-div a{
+                    font-size: 4vw;
+                }
 
-            .login-div h1{
-                font-size: 6vw;
-            }
+                .login-div h1{
+                    font-size: 6vw;
+                }
 
-            .login-div input{
-                height: 5vw;
-                font-size: 4vw;
-            }
+                .login-div input{
+                    height: 5vw;
+                    font-size: 4vw;
+                }
 
-            .login-div button{
-                font-size: 4vw;
-            }
+                .login-div button{
+                    font-size: 4vw;
+                }
 
             .userpageDiv{
                 position: relative;
                 margin-top: 10vw;
             }
 
-            .userpageDiv a{
-                font-size: 4vw;
-            }
+                .userpageDiv a{
+                    font-size: 4vw;
+                }
 
-            .userpageDiv h1{
-                font-size: 6vw;
-            }
+                .userpageDiv h1{
+                    font-size: 6vw;
+                }
 
             .sidebar{
                 display: flexbox;
@@ -267,9 +298,13 @@
                 background-color: rgba(10, 10, 40, 0.9);
                 margin-left: 0vw;
                 margin-right: 0vw;
-                margin-top: 6vw;
+                margin-top: 5vw;
                 margin-bottom: auto;
             }
+
+                .sidebar a{
+                    font-size: 4vw;
+                }
            
         }
 
@@ -807,6 +842,7 @@
             document.getElementById('whatsNewButton').style.color = "white";
             document.getElementById('updatesButton').style.color = "white";
             document.getElementById('TrinityGuitarButton').style.color = "white";
+            document.getElementById('GuitarChordsButton').style.color = "white";
 
             //Button Font weight
             document.getElementById('guitarPiecesButton').style.fontWeight = "bold";
@@ -814,7 +850,8 @@
             document.getElementById('bookCollectionsButton').style.fontWeight = "normal";
             document.getElementById('whatsNewButton').style.fontWeight = "normal";
             document.getElementById('updatesButton').style.fontWeight = "normal";
-            document.getElementById('TrinityGuitarButton').style.color = "normal";
+            document.getElementById('TrinityGuitarButton').style.fontweight = "normal";
+            document.getElementById('GuitarChordsButton').style.fontweight = "normal";
 
             //Divisions
             document.getElementById('guitar-div').style.display = "block"
@@ -833,6 +870,7 @@
             document.getElementById('whatsNewButton').style.color = "white";
             document.getElementById('updatesButton').style.color = "white";
             document.getElementById('TrinityGuitarButton').style.color = "white";
+            document.getElementById('GuitarChordsButton').style.color = "white";
 
             //Button Font weight
             document.getElementById('guitarPiecesButton').style.fontWeight = "normal";
@@ -840,7 +878,8 @@
             document.getElementById('bookCollectionsButton').style.fontWeight = "normal";
             document.getElementById('whatsNewButton').style.fontWeight = "normal";
             document.getElementById('updatesButton').style.fontWeight = "normal";
-            document.getElementById('TrinityGuitarButton').style.color = "normal";
+            document.getElementById('TrinityGuitarButton').style.fontweight = "normal";
+            document.getElementById('GuitarChordsButton').style.fontweight = "normal";
 
             //Divisions
             document.getElementById('guitar-div').style.display = "none"
@@ -859,6 +898,7 @@
             document.getElementById('whatsNewButton').style.color = "white";
             document.getElementById('updatesButton').style.color = "white";
             document.getElementById('TrinityGuitarButton').style.color = "white";
+            document.getElementById('GuitarChordsButton').style.color = "white";
 
             //Button Font weight
             document.getElementById('guitarPiecesButton').style.fontWeight = "normal";
@@ -866,7 +906,8 @@
             document.getElementById('bookCollectionsButton').style.fontWeight = "bold";
             document.getElementById('whatsNewButton').style.fontWeight = "normal";
             document.getElementById('updatesButton').style.fontWeight = "normal";
-            document.getElementById('TrinityGuitarButton').style.color = "normal";
+            document.getElementById('TrinityGuitarButton').style.fontweight = "normal";
+            document.getElementById('GuitarChordsButton').style.fontweight = "normal";
 
             //Divisions
             document.getElementById('guitar-div').style.display = "none"
@@ -885,6 +926,7 @@
             document.getElementById('whatsNewButton').style.color = "grey";
             document.getElementById('updatesButton').style.color = "white";
             document.getElementById('TrinityGuitarButton').style.color = "white";
+            document.getElementById('GuitarChordsButton').style.color = "white";
 
             //Button Font weight
             document.getElementById('guitarPiecesButton').style.fontWeight = "normal";
@@ -892,7 +934,8 @@
             document.getElementById('bookCollectionsButton').style.fontWeight = "normal";
             document.getElementById('whatsNewButton').style.fontWeight = "bold";
             document.getElementById('updatesButton').style.fontWeight = "normal";
-            document.getElementById('TrinityGuitarButton').style.color = "normal";
+            document.getElementById('TrinityGuitarButton').style.fontweight = "normal";
+            document.getElementById('GuitarChordsButton').style.fontweight = "normal";
 
             //Divisions
             document.getElementById('guitar-div').style.display = "none"
@@ -901,6 +944,7 @@
             document.getElementById('whatsNew').style.display = "block"
             document.getElementById('updates-div').style.display = "none"
             document.getElementById('trinity-guitar-div').style.display = "none";
+            document.getElementById('GuitarChordsButton').style.color = "white";
         }
 
         function updatesButton(){
@@ -918,7 +962,8 @@
             document.getElementById('bookCollectionsButton').style.fontWeight = "normal";
             document.getElementById('whatsNewButton').style.fontWeight = "normal";
             document.getElementById('updatesButton').style.fontWeight = "bold";
-            document.getElementById('TrinityGuitarButton').style.color = "normal";
+            document.getElementById('TrinityGuitarButton').style.fontweight = "normal";
+            document.getElementById('GuitarChordsButton').style.fontweight = "normal";
 
             //Divisions
             document.getElementById('guitar-div').style.display = "none";
@@ -937,6 +982,7 @@
             document.getElementById('whatsNewButton').style.color = "white";
             document.getElementById('updatesButton').style.color = "white";
             document.getElementById('TrinityGuitarButton').style.color = "grey";
+            document.getElementById('GuitarChordsButton').style.color = "white";
 
             //Button Font weight
             document.getElementById('guitarPiecesButton').style.fontWeight = "normal";
@@ -944,7 +990,8 @@
             document.getElementById('bookCollectionsButton').style.fontWeight = "normal";
             document.getElementById('whatsNewButton').style.fontWeight = "normal";
             document.getElementById('updatesButton').style.fontWeight = "normal";
-            document.getElementById('TrinityGuitarButton').style.color = "bold";
+            document.getElementById('TrinityGuitarButton').style.fontweight = "bold";
+            document.getElementById('GuitarChordsButton').style.fontweight = "normal";
 
             //Divisions
             document.getElementById('guitar-div').style.display = "none";
@@ -953,6 +1000,35 @@
             document.getElementById('whatsNew').style.display = "none";
             document.getElementById('updates-div').style.display = "none";
             document.getElementById('trinity-guitar-div').style.display = "block";
+        }
+
+        function GuitarChordsButton(){
+            //Button Colors
+            document.getElementById('guitarPiecesButton').style.color = "white";
+            document.getElementById('pianoPiecesButton').style.color = "white";
+            document.getElementById('bookCollectionsButton').style.color = "white";
+            document.getElementById('whatsNewButton').style.color = "white";
+            document.getElementById('updatesButton').style.color = "white";
+            document.getElementById('TrinityGuitarButton').style.color = "white";
+            document.getElementById('GuitarChordsButton').style.color = "grey";
+
+            //Button Font weight
+            document.getElementById('guitarPiecesButton').style.fontWeight = "normal";
+            document.getElementById('pianoPiecesButton').style.fontWeight = "normal";
+            document.getElementById('bookCollectionsButton').style.fontWeight = "normal";
+            document.getElementById('whatsNewButton').style.fontWeight = "normal";
+            document.getElementById('updatesButton').style.fontWeight = "normal";
+            document.getElementById('TrinityGuitarButton').style.fontweight = "normal";
+            document.getElementById('GuitarChordsButton').style.fontweight = "bold";
+
+            //Divisions
+            document.getElementById('guitar-div').style.display = "none";
+            document.getElementById('piano-div').style.display = "none";
+            document.getElementById('book-collection-div').style.display = "none";
+            document.getElementById('whatsNew').style.display = "none";
+            document.getElementById('updates-div').style.display = "none";
+            document.getElementById('trinity-guitar-div').style.display = "none";
+            document.getElementById('guitar-chords-div').style.display = "block";
         }
 
         //Key
@@ -972,7 +1048,7 @@
             Theuns' Music Sheets
         </a>
         <a style="margin: 0px; margin-right: auto; margin-left: 1vw; color: chartreuse; margin-bottom: 0px; margin-top: auto; font-size: 2vw;">
-            (Beta Version: 2.2.0)
+            (Beta Version: 2.3.0)
         </a>
     </div>
     <div class="mobile-header-div" id="mobile-header-div">
@@ -980,7 +1056,7 @@
             Theuns' Music Sheets
         </a>
         <a style="margin: 0px; margin-right: auto; margin-left: 1vw; color: chartreuse; margin-bottom: 0px; margin-top: auto; font-size: 2vw;">
-            (Beta Version: 2.2.0)
+            (Beta Version: 2.3.0)
         </a>
         <img src="icons8-hamburger-menu-64.png" onclick="menuButton()">
     </div>
@@ -989,6 +1065,9 @@
         <br>
         <br>
         <a id="TrinityGuitarButton" onclick="TrinityGuitarButton()">Trinity Guitar</a>
+        <br>
+        <br>
+        <a id="GuitarChordsButton" onclick="GuitarChordsButton()">Guitar chords</a>
         <br>
         <br>
         <a id="pianoPiecesButton" onclick="pianoPiecesButton()">Piano Pieces</a>
@@ -1022,6 +1101,10 @@
             <div class="whatsNew" id="whatsNew">
                 <h1>What is new?</h1>
                 <br>
+                <a style="color: chartreuse;">27 January 2024</a>
+                <br>
+                <a>Uploaded guitar chords sheets.</a>
+                <hr style="color: white;">
                 <a style="color: chartreuse;">22 January 2024</a>
                 <br>
                 <a>Uploaded Trinity guitar pieces and scales.</a>
@@ -1033,6 +1116,10 @@
             <div class="updates-div" id="updates-div">
                 <h1>Updates</h1>
                 <br>
+                <a  style="color: chartreuse;">Beta Version (2.3.0) 27/01/2024</a>
+                <br>
+                <a>Fixed the desktop web page display details. Added a new sidebar button for guitar chords</a>
+                <hr style="color: white;">
                 <a  style="color: chartreuse;">Beta Version (2.2.0) 25/01/2024</a>
                 <br>
                 <a>Changed the looks of the GUI with animation background and transparent menus.</a>
@@ -1118,6 +1205,26 @@
                 <br>
                 <a href="Trinity Guitar/Trinity grade 7 - 2010.pdf" download="Trinity grade 7 - 2010.pdf">Download</a>
             </div>
+            <div class="guitar-chords-div" id="guitar-chords-div">
+                <h1>Guitar Chords</h1>
+                <br>
+                <a>a Cool guide to guitar chords</a>
+                <br>
+                <a href="guitar chords/a-cool-guide-to-guitar-chords.png" download="a cool guide to guitar chords.png">Download</a>
+                <br>
+                <hr style="color: white;">
+                <a>Beginner guitar chord chart</a>
+                <br>
+                <a href="guitar chords/Beginner-guitar-chord-chart.jpg" download="Beginner guitar chord chart.jpg">Download</a>
+                <hr style="color: white;">
+                <a>Guitar chord chart</a>
+                <br>
+                <a href="guitar chords/guitar-chord-chart.png" download="Guitar chord chart.png">Download</a>
+                <hr style="color: white;">
+                <a>Power chord chart list</a>
+                <br>
+                <a href="guitar chords/Power-chord-chart-list-guitar-pro.pdf" download="Power-chord-chart-list-guitar-pro.pdf">Download</a>
+            </div>
             <div class="piano-div" id="piano-div">
                 <h1>Piano Pieces</h1>
                 <br>
@@ -1133,8 +1240,7 @@
                 <hr style="color: white;">
                 <a>Nirvana: Smells Like Teen Spirit</a>
                 <br>
-                <a href="piano/kupdf.net_sheet-music-piano-score-nirvana-smells-like-teen-spirit1.pdf" download="Nirvana-Smells Like Teen Spirit.pdf">Download</a>
-                
+                <a href="piano/kupdf.net_sheet-music-piano-score-nirvana-smells-like-teen-spirit1.pdf" download="Nirvana-Smells Like Teen Spirit.pdf">Download</a> 
             </div>
             <div class="book-collection-div" id="book-collection-div">
                 <h1>Book Collections</h1>
