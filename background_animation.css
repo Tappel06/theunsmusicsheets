@@ -1,0 +1,431 @@
+.hexagon{
+    background-color: aqua;
+    position: fixed;
+    left: 20VW;
+    Top: 170VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon2{
+    background-color: aqua;
+    position: fixed;
+    left: 80VW;
+    Top: 50VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon3{
+    background-color: aqua;
+    position: fixed;
+    left: -5VW;
+    Top: 0VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon4{
+    background-color: greenyellow;
+    position: fixed;
+    left: 30VW;
+    Top: 80VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon5{
+    background-color: red;
+    position: fixed;
+    left: 50VW;
+    Top: 10VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon6{
+    background-color: aliceblue;
+    position: fixed;
+    left: 60VW;
+    Top: 120VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon7{
+    background-color: chartreuse;
+    position: fixed;
+    left: -15VW;
+    Top: 50VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon8{
+    background-color: darkmagenta;
+    position: fixed;
+    left: 65VW;
+    Top: 80VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon9{
+    background-color: orangered;
+    position: fixed;
+    left: VW;
+    Top: 115VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon10{
+    background-color: red;
+    position: fixed;
+    left: 50VW;
+    Top: 10VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon-1{
+    background-color: darkorange;
+    position: fixed;
+    left: 50VW;
+    Top: 170VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon2-1{
+    background-color: mintcream;
+    position: fixed;
+    left: 15VW;
+    Top: 50VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon3-1{
+    background-color: lightcoral;
+    position: fixed;
+    left: 30VW;
+    Top: -20VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon4-1{
+    background-color: lightsteelblue;
+    position: fixed;
+    left: 45VW;
+    Top: 100VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon5-1{
+    background-color: royalblue;
+    position: fixed;
+    left: 0VW;
+    Top: 40VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon6-1{
+    background-color: blueviolet;
+    position: fixed;
+    left: 70VW;
+    Top: 130VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon7-1{
+    background-color: darkorange;
+    position: fixed;
+    left: 60VW;
+    Top: 70VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon8-1{
+    background-color: gold;
+    position: fixed;
+    left: 75VW;
+    Top: 30VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon9-1{
+    background-color: orangered;
+    position: fixed;
+    left: 60VW;
+    Top: 115VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon10-1{
+    background-color: red;
+    position: fixed;
+    left: 25VW;
+    Top: 100VW;
+    z-index: -1;
+    /*hexagon settings*/
+    width: 100px;
+    height: 110px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+#hexagone-move{
+    animation: move-down 20s linear infinite;
+}
+
+@keyframes move-down {
+    0% {
+        transform: translate(-200vw, 200vw);
+        transform: translate(-200vw, 200vw);
+        transform: translate(200vw, -200vw);
+        transform: translate(200vw, -200vw);
+    }
+    100% {
+        transform: translate(200vw, -200vw);
+        transform: translate(200vw, -200vw);
+        transform: translate(-200vw, 200vw);
+        transform: translate(-200vw, 200vw);
+    }
+}
+
+#hexagone-move2{
+    animation: move-down2 10s linear infinite;
+}
+
+@keyframes move-down2 {
+    0% {
+        transform: translateY(200vw);
+        transform: translateX(200vw);
+        transform: translateY(-200vw);
+        transform: translateX(-200vw);
+    }
+    100% {
+        transform: translateY(-200vw);
+        transform: translateX(-200vw);
+        transform: translateY(200vw);
+        transform: translateX(200vw);
+    }
+}
+
+#hexagone-move3{
+    animation: move-down3 30s linear infinite;
+}
+
+@keyframes move-down3 {
+    0% {
+        transform: translate(-200vw, 200vw);
+        transform: translate(-200vw, 200vw);
+        transform: translate(200vw, -200vw);
+        transform: translate(200vw, -200vw);
+    }
+    100% {
+        transform: translate(200vw, -200vw);
+        transform: translate(200vw, -200vw);
+        transform: translate(-200vw, 200vw);
+        transform: translate(-200vw, 200vw);
+    }
+}
+
+#hexagone-move4{
+    animation: move-down4 40s linear infinite;
+}
+
+@keyframes move-down4 {
+    0% {
+        transform: translateX(200vw);
+        transform: translateY(200vw);
+        transform: translateX(-200vw);
+        transform: translateY(-200vw);
+        
+    }
+    100% {
+        transform: translateX(-200vw);
+        transform: translateY(-200vw);
+        transform: translateX(200vw);
+        transform: translateY(200vw);
+    }
+}
+
+#hexagone-move5{
+    animation: move-down5 60s linear infinite;
+}
+
+@keyframes move-down5 {
+    0% {
+        transform: translateY(-200vw);
+        transform: translateX(-200vw);
+        transform: translateY(200vw);
+        transform: translateX(200vw);
+    }
+    100% {
+        transform: translateY(200vw);
+        transform: translateX(200vw);
+        transform: translateY(-200vw);
+        transform: translateX(-200vw);
+    }
+}
+
+#hexagone-move6{
+    animation: move-down6 80s linear infinite;
+}
+
+@keyframes move-down6 {
+    0% {
+        transform: translate(200vw, -200vw);
+        transform: translate(200vw, -200vw);
+        transform: translate(-200vw, 200vw);
+        transform: translate(-200vw, 200vw);
+    }
+    100% {
+        transform: translate(-200vw, 200vw);
+        transform: translate(-200vw, 200vw);
+        transform: translate(200vw, -200vw);
+        transform: translate(200vw, -200vw);
+    }
+}
+
+#hexagone-move7{
+    animation: move-down7 100s linear infinite;
+}
+
+@keyframes move-down7 {
+    0% {
+        transform: translate(-200vw, 200vw);
+        transform: translate(-200vw, 200vw);
+        transform: translate(200vw, -200vw);
+        transform: translate(200vw, -200vw);
+    }
+    100% {
+        transform: translate(200vw, -200vw);
+        transform: translate(200vw, -200vw);
+        transform: translate(-200vw, 200vw);
+        transform: translate(-200vw, 200vw)
+    }
+}
+
+#hexagone-move8{
+    animation: move-down8 120s linear infinite;
+}
+
+@keyframes move-down8 {
+    0% {
+        transform: translateX(200vw);
+        transform: translateY(200vw);
+        transform: translateX(-200vw);
+        transform: translateY(-200vw);
+        
+    }
+    100% {
+        transform: translateX(-200vw);
+        transform: translateY(-200vw);
+        transform: translateX(200vw);
+        transform: translateY(200vw);
+    }
+}
+
+#hexagone-move9{
+    animation: move-down9 45s linear infinite;
+}
+
+@keyframes move-down9 {
+    0% {
+        transform: translateX(-200vw);
+        transform: translateY(-200vw);
+        transform: translateX(200vw);
+        transform: translateY(200vw);
+    }
+    100% {
+        transform: translateX(200vw);
+        transform: translateY(200vw);
+        transform: translateX(-200vw);
+        transform: translateY(-200vw);
+    }
+}
+
+#hexagone-move10{
+    animation: move-down10 63s linear infinite;
+}
+
+@keyframes move-down10 {
+    0% {
+        transform: translate(-200vw, -200vw);
+        transform: translate(-200vw, -200vw);
+        transform: translate(200vw, 200vw);
+        transform: translate(200vw, 200vw);
+    }
+    100% {
+        transform: translate(200vw, 200vw);
+        transform: translate(200vw, 200vw);
+        transform: translate(-200vw, -200vw);
+        transform: translate(-200vw, -200vw);
+    }
+}
