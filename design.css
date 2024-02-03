@@ -8,6 +8,7 @@ body{
 }
 
 .header-div{
+    z-index: 1;
     display: flex;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.8);
@@ -23,18 +24,13 @@ body{
 }
 
 .mobile-header-div{
+    z-index: 1;
     display: none;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.8);
-
-    /* test */
-
     align-items: center;
     align-content: center;
     text-align: center;
-
-    /* test */
-
     color: white;
     margin: auto;
     margin-left: 0px;
@@ -128,6 +124,20 @@ body{
 
 .sidebar a{
     font-size: 1.5vw;
+}
+
+.menu-divs{
+    display: none;
+    text-align: center;
+    align-content: center;
+    background-color: rgba(10, 10, 40, 0.6);
+    color: white;
+    width: 100%;
+    margin: 2vw;
+    margin-top: 2vw;
+    margin-bottom: auto;
+    padding: 2vw;
+    border-radius: 2.5vw;
 }
 
 .whats-new-div{
