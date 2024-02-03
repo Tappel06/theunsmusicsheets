@@ -206,8 +206,8 @@ const Files = { beginner: {
                                             the_library_of_classical_guitar_favorites: {the_library_of_classical_guitar_favorites: {display_name: "The Library of Classical Guitar Favorites.pdf",
                                                                                                                                     file_path: "collections/The-library-of-classical-guitar-favorites-Amco-Publications-pdf.pdf"}}}},
                 youtube_videos:     {
-                                    button_name: "Youtube Videos",
-                                    button_id: "youtubeVideosButton",
+                                    button_name: "YouTube Videos",
+                                    button_id: "youTubeVideosButton",
                                     div_id: "youtube-videos_div",
                                     pieces: {   bob_dylan: {mr_tamborine_man: {display_name: "Bob Dylan: Mr. Tamborine Man",
                                                                                 file_path: "https://youtu.be/7SiaqzuiyGw?si=tcO_sWs3tzvtQiMc"}},
@@ -280,7 +280,7 @@ const Files = { beginner: {
                             button_id: "whatsNewButton",
                             div_id: "whats-new-div",
                             message:    {february_2024_3:   {message_header: "3 February 2024",
-                                                                message_body: "Uploaded: \"Trinity guitar pop rock syllabus\"; \"Zombie\" by the Cranberries for piano; Youtube video links for the pop rock syllabus; And some beginner papers."},
+                                                                message_body: "Uploaded: \"Trinity guitar pop rock syllabus\"; \"Zombie\" by the Cranberries for piano; YouTube video links for the pop rock syllabus; And some beginner papers."},
                                         january_2024_27:    {message_header: "27 January 2024",
                                                                 message_body: "Uploaded guitar chords sheets."},
                                         january_2024_22: {message_header: "22 January 2024",
@@ -346,6 +346,15 @@ function files_length(target_object_directory){
     return total_files;
 }
 
+function is_youtube_div(key){
+    if (key.toString() == "youtube_videos"){
+        return "Watch Video";
+    }
+    else{
+        return "Download";
+    }
+}
+
 function div_pieces_setup(div_tab, key){
     let total_b = files_length(Files[key].pieces);
     let current_b = 0;
@@ -369,7 +378,7 @@ function div_pieces_setup(div_tab, key){
                 const br1 = document.createElement('br');
                 frag1.appendChild(br1);
                 const new_a_2 = document.createElement('a');
-                new_a_2.textContent = "Download";
+                new_a_2.textContent = is_youtube_div(key);
                 new_a_2.href = Files[key].pieces[artist][b].file_path;
                 new_a_2.download = Files[key].pieces[artist][b].display_name;
                 const frag2 = document.createDocumentFragment();
