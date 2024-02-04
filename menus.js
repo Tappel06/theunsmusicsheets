@@ -94,7 +94,16 @@ function menuButton(){
     }
 }
 
-const Files = { beginner: {
+const Files = { shop: {
+                        folder_name: "shop",
+                        button_name: "Shop",
+                        button_id: "shopButton",
+                        div_id: "shop_div",
+                        message: {guitar_plectrum: {image_directory: "shop/alice_guitar_pics.jpg",
+                                                    message_header: "Alice Guitar Pics",
+                                                    message_body: "R5 each"}}
+                        },
+                beginner: {
                             folder_name: "beginner",
                             button_name: "Beginner",
                             button_id: "beginnerButton",
@@ -293,7 +302,9 @@ const Files = { beginner: {
                             button_name: "Updates",
                             button_id: "updatesButton",
                             div_id: "updates-div",
-                            message:   {beta_2_5_0: { message_header: "Beta Version (2.5.0) 03/02/2024",
+                            message:   {beta_2_6_0: { message_header: "Beta Version (2.6.0) 04/02/2024",
+                                                        message_body: "Added a Shop button to the sidebar"},
+                                        beta_2_5_0: { message_header: "Beta Version (2.5.0) 03/02/2024",
                                                         message_body: "Reduced the total amount of code needed for HTML by replacing it with JavaScript algorithms. Improved the general appearance of the div display order."},
                                         beta_2_4_0: { message_header: "Beta Version (2.4.0) 01/02/2024",
                                                         message_body: "Improved the code with better algorithms that reduces the amount of code in files, and help with the automation when uploading more files."},
@@ -331,7 +342,12 @@ function sidePanelButton(button_id){
             document.getElementById(Files[key].div_id).style.display = "block";
         }
         else{
-            document.getElementById(Files[key].button_id).style.color = "white";
+            if(key.toString() == "shop"){
+                document.getElementById(Files[key].button_id).style.color = "chartreuse";
+            }
+            else{
+                document.getElementById(Files[key].button_id).style.color = "white";
+            }
             document.getElementById(Files[key].button_id).style.fontWeight = "normal";
             document.getElementById(Files[key].div_id).style.display = "none";
         }
@@ -400,6 +416,45 @@ function div_pieces_setup(div_tab, key){
     }
 }
 
+function div_shop_setup(div_tab, key){
+    let total_b = files_length(Files[key].message);
+    let current_b = 0;
+    for(const update in Files[key].message){
+        current_b += 1;
+        if(current_b == 1){
+            const br = document.createElement('br');
+            const frag = document.createDocumentFragment();
+            frag.appendChild(br);
+            div_tab.appendChild(frag);
+        }
+        const img = document.createElement('img');
+        img.src = Files[key].message[update].image_directory;
+        const br0 = document.createElement('br');
+        const frag0 = document.createDocumentFragment();
+        frag0.appendChild(br0);
+        const a = document.createElement('a');
+        a.style.color = "chartreuse";
+        a.textContent = Files[key].message[update].message_header;
+        const br1 = document.createElement('br');
+        const frag1 = document.createDocumentFragment();
+        frag1.appendChild(br1);
+        const a1 = document.createElement('a');
+        a1.textContent = Files[key].message[update].message_body;
+
+        div_tab.appendChild(img);
+        div_tab.appendChild(frag0);
+        div_tab.appendChild(a);
+        div_tab.appendChild(frag1);
+        div_tab.appendChild(a1);
+
+        if(current_b < total_b){
+            const new_hr = document.createElement('hr');
+            new_hr.style.color = "white";
+            div_tab.appendChild(new_hr);
+        }
+    }
+}
+
 function div_updates_setup(div_tab, key){
     let total_b = files_length(Files[key].message);
     let current_b = 0;
@@ -442,8 +497,11 @@ function populate_div_tabs(){
         new_h1.textContent = Files[key].button_name;
         div_tab.appendChild(new_h1);
         
+        if(key.toString() == "shop"){
+            div_shop_setup(div_tab, key);
+        }
         // if it is pieces menu
-        if(file_number <= dictionary_length -2){
+        else if(file_number <= dictionary_length -2){
             if(files_length(Files[key].pieces) < 1){
                 continue;
             }
@@ -479,6 +537,9 @@ function sidebar_setup(){
         sidebar.appendChild(newAnchor);
         sidebar.appendChild(fragment);
         sidebar.appendChild(fragment2);
+        if(key.toString() == "shop"){
+            newAnchor.style.color = "chartreuse";
+        }
     }
 }
 
