@@ -60,7 +60,7 @@ async function userExists(username, password){
 }
 
 const body = document.body;
-const colors = ["#505050", "#50ff50", "#5050ff", "#aaaaff", "#40ff90", "#40ffff", "#9040ff", "#202020", "#303070", ]
+const colors = ["#505050", "#50ff50", "#5050ff", "#808080", "#408080", "#409090", "#9040ff", "#202020", "#303070", ]
 let startColor = "000000";
 let endColor = "#501090";
 const duration = 2500;
@@ -78,7 +78,7 @@ function getBackgroundColor(){
         return rgbToHex(bgc);
     }
     else{
-        return alert(bgc);
+        return bgc;
     }
 }
 
@@ -382,7 +382,9 @@ const Files = { shop: {
                             button_name: "Updates",
                             button_id: "updatesButton",
                             div_id: "updates-div",
-                            message:   {beta_2_7_0: { message_header: "Beta Version (2.7.0) 05/02/2024",
+                            message:   {beta_2_7_1: { message_header: "Beta Version (2.7.1) 05/02/2024",
+                                                        message_body: "Minor bug fixes with background color changes"},
+                                        beta_2_7_0: { message_header: "Beta Version (2.7.0) 05/02/2024",
                                                         message_body: "Modified background color animations"},
                                         beta_2_6_0: { message_header: "Beta Version (2.6.0) 04/02/2024",
                                                         message_body: "Added a Shop button to the sidebar"},
@@ -626,6 +628,7 @@ function sidebar_setup(){
     }
 }
 
+change_random_background_colour();
 create_div_menus();
 populate_div_tabs();
 sidebar_setup();
