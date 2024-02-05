@@ -60,7 +60,7 @@ async function userExists(username, password){
 }
 
 const body = document.body;
-const colors = ["#505050", "#50ff50", "#5050ff", "#808080", "#408080", "#409090", "#9040ff", "#202020", "#303070", ]
+const colors = ["#505050", "#50ff50", "#505080", "#808080", "#408080", "#409090", "#9040ff", "#202020", "#303070", ]
 let startColor = "000000";
 let endColor = "#501090";
 const duration = 2500;
@@ -85,6 +85,7 @@ function getBackgroundColor(){
 function setBackgroundColor(){
     startColor = getBackgroundColor();
     endColor = randomColor();
+    //alert(endColor);
 }
 
 function rgbToHex(rgbString){
