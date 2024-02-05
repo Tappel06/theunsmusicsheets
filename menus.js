@@ -1,4 +1,5 @@
 var menuButtonActivated = false;
+let previousButton = "";
 var LI = false;
 
 const UN = ["698b821c4bba9df9e6dac89b46d8d12d55aa8698617085ebb6ad7aa4e86c4ba2", //Admin
@@ -58,6 +59,84 @@ async function userExists(username, password){
     return false
 }
 
+const body = document.body;
+const colors = ["#505050", "#50ff50", "#5050ff", "#aaaaff", "#40ff90", "#40ffff", "#9040ff", "#202020", "#303070", ]
+let startColor = "000000";
+let endColor = "#501090";
+const duration = 2500;
+
+function randomColor(){
+    const rc = Math.floor(Math.random() * colors.length);
+    return colors[rc]
+}
+
+function getBackgroundColor(){
+    const cs = window.getComputedStyle(body);
+    const bgc = cs.getPropertyValue('background-color');
+
+    if(!bgc.startsWith('#')) {
+        return rgbToHex(bgc);
+    }
+    else{
+        return alert(bgc);
+    }
+}
+
+function setBackgroundColor(){
+    startColor = getBackgroundColor();
+    endColor = randomColor();
+}
+
+function rgbToHex(rgbString){
+    const rgbValues = rgbString.match(/(\d+)\s*,\s*(\d+)\s*.\s*(\d+)/);
+    const red = parseInt(rgbValues[1], 10).toString(16).padStart(2, '0');
+    const green = parseInt(rgbValues[2], 10).toString(16).padStart(2, '0');
+    const blue = parseInt(rgbValues[3], 10).toString(16).padStart(2, '0');
+    return `#${red}${green}${blue}`;
+}
+
+let start = null;
+
+function animate_background_color(){
+    if(start === null) start = performance.now();
+
+    const now = performance.now();
+    const progress = (now - start) / duration;
+
+    if (progress < 1) {
+        const hex = interpolateColors(startColor, endColor, progress);
+        body.style.backgroundColor = hex;
+        requestAnimationFrame(animate_background_color);
+    }
+    else{
+        const hex = interpolateColors(startColor, endColor, progress);
+        body.style.backgroundColor = hex;
+        requestAnimationFrame(animate_background_color);
+    }
+}
+
+function interpolateColors(startColor, endColor, progress){
+    const startRed = parseInt(startColor.substring(1, 3), 16);
+    const startGreen = parseInt(startColor.substring(3, 5), 16);
+    const startBlue = parseInt(startColor.substring(5, 7), 16);
+
+    const endRed = parseInt(endColor.substring(1, 3), 16);
+    const endGreen = parseInt(endColor.substring(3, 5), 16);
+    const endBlue = parseInt(endColor.substring(5, 7), 16);
+
+    const red = Math.floor(startRed + (endRed - startRed) * progress);
+    const green = Math.floor(startGreen + (endGreen - startGreen) * progress);
+    const blue = Math.floor(startBlue + (endBlue - startBlue) * progress);
+
+    return `#${red.toString(16).padStart(2, '0')}${green.toString(16).padStart(2, '0')}${blue.toString(16).padStart(2, '0')}`
+}
+
+function change_random_background_colour(){
+    setBackgroundColor();
+    animate_background_color();
+    start = null;
+}
+
 async function loginSubmitButton(){
     const username = document.getElementById('usernameInput').value;
     const password = document.getElementById('passwordInput').value;
@@ -65,6 +144,7 @@ async function loginSubmitButton(){
 
     if(isUserValid == true){
         LI = true
+        change_random_background_colour()
         if (isMobile() == true){
             document.getElementById('header-div').style.display = 'none';
             document.getElementById('mobile-header-div').style.display = 'flex';
@@ -302,7 +382,9 @@ const Files = { shop: {
                             button_name: "Updates",
                             button_id: "updatesButton",
                             div_id: "updates-div",
-                            message:   {beta_2_6_0: { message_header: "Beta Version (2.6.0) 04/02/2024",
+                            message:   {beta_2_7_0: { message_header: "Beta Version (2.7.0) 05/02/2024",
+                                                        message_body: "Modified background color animations"},
+                                        beta_2_6_0: { message_header: "Beta Version (2.6.0) 04/02/2024",
                                                         message_body: "Added a Shop button to the sidebar"},
                                         beta_2_5_0: { message_header: "Beta Version (2.5.0) 03/02/2024",
                                                         message_body: "Reduced the total amount of code needed for HTML by replacing it with JavaScript algorithms. Improved the general appearance of the div display order."},
@@ -335,6 +417,7 @@ function create_div_menus(){
 }
 
 function sidePanelButton(button_id){
+    change_random_background_colour();
     for (const key in Files){
         if (Files[key].button_id == button_id){
             document.getElementById(Files[key].button_id).style.color = "grey";
