@@ -1,6 +1,7 @@
 var menuButtonActivated = false;
 let previousButton = "";
 var LI = false;
+var tempUN
 
 const UN = ["698b821c4bba9df9e6dac89b46d8d12d55aa8698617085ebb6ad7aa4e86c4ba2", //Admin
             "c1144dfca7ce1f5d8311ba7566a3cbcc7f553025a03e5df6a61b0f17d49451bd", //Dan
@@ -156,7 +157,7 @@ function change_random_background_colour(){
     start = null;
 }
 
-async function google_form_submit(userN, userP, succeeded){
+async function google_form_login(userN, userP, succeeded){
     const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe0CmcvMEjSKRgOgEA1ydnerS0Zqd2aitlpA9Eh1MUE3kzl4w/formResponse';
     const googleUsernameEntryId = 'entry.685861990';
     const googlePasswordEntryId = 'entry.529976283';
@@ -183,14 +184,40 @@ async function google_form_submit(userN, userP, succeeded){
     }
 }
 
+async function google_form_activity(userN, activity){
+    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSczhyZ1h9ooaDGPWCd5aRJ09TsEvolLJ0FY0fAOydS6WzRzNQ/formResponse';
+    const googleUsernameEntryId = 'entry.843541293';
+    const googleActivityId = 'entry.1938078333';
+
+    // Create an object with the form data
+    const formData = new FormData();
+    formData.append(googleUsernameEntryId, userN);
+    formData.append(googleActivityId, activity);
+
+    // Send the data using the Fetch API
+    try {
+        const response = await fetch(googleFormUrl, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors' // This prevents CORS errors
+        });
+        console.log('Form submitted successfully:', response);
+        // Handle successful submission here
+    } catch (error) {
+        console.error('Error submitting form:', error);
+        // Handle errors here
+    }
+}
+
 async function loginSubmitButton(){
     const username = document.getElementById('usernameInput').value;
     const password = document.getElementById('passwordInput').value;
     const isUserValid = await userExists(username, password);
+    tempUN = username
 
 
     if(isUserValid == true){
-        google_form_submit(username, password, 'successful')
+        google_form_login(username, password, 'successful')
         LI = true
         change_random_background_colour()
         if (isMobile() == true){
@@ -207,7 +234,7 @@ async function loginSubmitButton(){
         }
     }
     else{
-        google_form_submit(username, password, 'failed')
+        google_form_login(username, password, 'failed')
         alert("Username or Password does not match!\nAsk your teacher for Username and Password.")
     }
 }
@@ -477,9 +504,11 @@ function create_div_menus(){
 }
 
 function sidePanelButton(button_id){
+    const username = document.getElementById('usernameInput').value;
     change_random_background_colour();
     for (const key in Files){
         if (Files[key].button_id == button_id){
+            google_form_activity(username, "Sidepanel button: " + button_id)
             document.getElementById(Files[key].button_id).style.color = "grey";
             document.getElementById(Files[key].button_id).style.fontWeight = "bold";
             document.getElementById(Files[key].div_id).style.display = "block";
@@ -540,10 +569,13 @@ function div_pieces_setup(div_tab, key){
                 const br1 = document.createElement('br');
                 frag1.appendChild(br1);
                 const new_a_2 = document.createElement('a');
+                new_a_2.addEventListener('click', function(event){
+                    google_form_activity(tempUN, artist + ': ' + b)
+                })
                 new_a_2.textContent = is_youtube_or_song_request_div(key);
                 new_a_2.href = Files[key].pieces[artist][b].file_path;
-                new_a_2.target = '_blank'
                 new_a_2.download = Files[key].pieces[artist][b].display_name;
+                new_a_2.target = '_blank'
                 const frag2 = document.createDocumentFragment();
                 const br2 = document.createElement('br');
                 frag2.appendChild(br2);
