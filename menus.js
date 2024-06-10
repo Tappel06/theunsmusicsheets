@@ -18,6 +18,8 @@ const UN = ["698b821c4bba9df9e6dac89b46d8d12d55aa8698617085ebb6ad7aa4e86c4ba2", 
             "814ee05c511d3780ab71666178899643d89dba207046a8753d8ddcef6b6f460f", //Ode
             "c773f5fb4bf41c6544658d9974bd1232e0d2e096d355ad4c2e249987c0b7291d", //Ril
             "bbd66126bfa22ecf79c06f507fd50f1e7a410032c037b08825440a29c3121b37", //Zan
+            "da373bf2a0d1c240be3e658a1704f92b5faca9447fc50a7bb7b60b457358b4be", //Fred
+            "db280b10ad5dfb3d394cd5e1313f865471d47247195aed03c7793c32754316a9", //Dur
             ];
 
 const UP = ["ab572f60a5aa6309b459cc54296e5eddc7d4023636de4d8dd9e73fd613ca4c2c", //Admin
@@ -35,6 +37,8 @@ const UP = ["ab572f60a5aa6309b459cc54296e5eddc7d4023636de4d8dd9e73fd613ca4c2c", 
             "1356ef69c22ad31d33636bf12f1bd2f26ad77cae209a505f21c58ae000d5c06d", //Ode
             "4ab467ed5ce12b953956b0119513078fa6ec509496b58c36904788635f20714e", //Ril
             "775be65619b336922aa9663477cd9289ab21ca4ee8a2fe438e5665a086315772", //Zan
+            "5b4d286631cd3bce96b40cccd1c80a305bed62960a12c53caad823988fa2e140", //Fred
+            "f5a0bfaa42a748e009a400703a1300eda5e61c609533a12d5a0b6f104931379d", //Dur
             ]
 
 function isMobile(){
@@ -218,7 +222,7 @@ async function loginSubmitButton(){
     const password = document.getElementById('passwordInput').value;
     const isUserValid = await userExists(username, password);
     tempUN = username
-
+    const T1 = document.getElementById('Title_Id')
 
     if(isUserValid == true){
         google_form_login(username, password, 'successful')
